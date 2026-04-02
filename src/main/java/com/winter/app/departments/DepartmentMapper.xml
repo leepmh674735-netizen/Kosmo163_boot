@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- FQDN 사용할 DAO의 클래스명을 풀캐지명으로 작성 -->
+<mapper namespace="com.winter.app.departments.DepartmentDAO">
+	<!-- 쿼리 태그-> <!-- ID : DAO에서 사용할 메서드명을 ID로 작성 -->
+	<!-- 컬럼명과 resultType의 Bean의 Setter이름이 같은걸을 찾아서 대입 -->
+
+	<select id="List"
+		resultType="com.winter.app.departments.DepartmentDTO">
+		SELECT * FROM TB_DEPARTMENT
+	</select>
+    <! --
+    SELECT * FROM TB_DEPARTMENT WHERE DEPARTMENT_NO = #{num}
+    
+   
+	<select id="detail" parameterType="java."
+		resaultType="com.winter.app.departments.Department" SELECT * FROM
+		TB_DEPARTMENT WHERE DEPARTMENT_NO=#{num}
+   </select>
+	<!-- INSERT, UPDATE, DELETE는 resultType이 존재 X -->
+	<!-- 결과물은 숫자(int)로 리턴을 함 -->
+	<insert id="create" parameterType="">
+		INSERT INTO TB_DEPARTMENT
+		<!-- Bean의 Getter의 이름을 #{}에 작성 -->
+		VALUES
+		 (
+		#{departmentNo},
+		#{departmentName},
+		#{category},
+		#{openYn},
+		#{capacity}
+		)
+
+	</insert>
+	
+	<delete id="delete" parameterType="com
+	   DELETE TB_DEPARTMENT WHERE DEPARTMENT_NO=#{}
+	</delete>
+	
+	update id="update" parameterType="com.winter">
+	
+	
+	</delete>
+	
+	
+	
+	
+	</mapper>
+   
+   
+   
