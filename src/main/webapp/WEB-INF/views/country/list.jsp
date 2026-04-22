@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <h1>Index Page</h1>
+	<h6>Country Page</h6>
 </body>
 </html>
-
-<! -- 테이블  DIV 시작>

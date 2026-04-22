@@ -3,7 +3,7 @@ plugins {
 	id 'war'
 	id 'org.springframework.boot' version '3.5.13'
 	id 'io.spring.dependency-management' version '1.1.7'
- }
+}
 
 group = 'com.winter'
 version = '0.0.1-SNAPSHOT'
@@ -11,20 +11,20 @@ version = '0.0.1-SNAPSHOT'
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
-	 }
- }
+	}
+}
 
- repositories {
-	 mavenCentral()
- }
+repositories {
+	mavenCentral()
+}
 
- dependencies {
+dependencies {
 
 
-  implementation("com.oracle.database.jdbc:ojdbc8:23.26.1.0.0")
-
-  implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5")
- 
+	implementation("com.oracle.database.jdbc:ojdbc11:23.26.1.0.0")
+	
+	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.5")
+	
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -34,23 +34,19 @@ java {
 	testCompileOnly 'org.projectlombok:lombok'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	testAnnotationProcessor 'org.projectlombok:lombok'
-	/*JSP*/
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper' 
-    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api' 
-    runtimeOnly 'org.glassfish.web:jakarta.servlet.jsp.jstl' 
+    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
+    runtimeOnly 'org.glassfish.web:jakarta.servlet.jsp.jstl'
 }
-eclipse {
+
+ eclipse {
     wtp {
         facet {
-            facet name: 'jst.web', version: '6.0' 
-            //facet name: 'jst.java', version: '21'
+            facet name: 'jst.web', version: '6.0'
             
         }
     }
 }
-
-
-
 
 tasks.named('test') {
 	useJUnitPlatform()

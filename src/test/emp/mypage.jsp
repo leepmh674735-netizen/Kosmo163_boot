@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <h1>Index Page</h1>
+	<h1>MyPage</h1>
+	<h3>${dto.employeeId}</h3>
+	<h3>${dto.firstName}</h3>
+	<h3>${dto.hireDate}</h3>
+
 </body>
 </html>
-
-<! -- 테이블  DIV 시작>

@@ -1,0 +1,1 @@
+rootProject.name = 'kosmo163_boot'
