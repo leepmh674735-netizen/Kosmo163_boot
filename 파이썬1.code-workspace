@@ -1,0 +1,40 @@
+{
+	"folders": [
+		{
+			"name": "소스",
+			"path": "../../OneDrive/바탕 화면/파이썬 1,2/소스"
+		},
+		{
+			"name": "day07 (2)",
+			"path": "../../OneDrive/바탕 화면/파이썬/day07 (2)"
+		},
+		{
+			"path": "../day08 (2)"
+		},
+		{
+			"path": "../day09"
+		},
+		{
+			"path": "../day10"
+		},
+		{
+			"path": "../day11"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../day13"
+		},
+		{
+			"path": "../day14"
+		},
+		{
+			"path": "../day15"
+		},
+		{
+			"path": "../day16"
+		}
+	],
+	"settings": {}
+}

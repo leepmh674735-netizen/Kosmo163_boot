@@ -1,0 +1,24 @@
+@SpringBootApplication
+@ImportResource("classpath:beans. xml")
+public class DemoApplication {
+    public station void main(String[] args) {
+        SpringBootApplication.run(DemoApplication.class, args);
+    }
+}
+@Component
+public class EspressoMachine implements CoffeeMachine {
+    @Override
+    public String brew () {
+        return "Brewing coffee with Espresso Machine";
+    }
+}
+@Component
+public class CoffeeMachine {
+    @Autowired
+    private CoffeeMachine CoffeeMachine;
+
+    @PostConstruct
+    public void makeCoffee() {
+        System.out.println(CoffeeMachine.brew());
+    }
+}

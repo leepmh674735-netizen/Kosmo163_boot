@@ -1,0 +1,27 @@
+< JDBC >
+ public class Main {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection(
+            "jdbc:mysql://localhost:3306/mydb",
+            "myuser",
+            "mypass");
+        PreparedStatement PreparedStatement = connection.
+  PreparedStatement("SELECT * FROM member");
+           ResultSet resultSet =PreparedStatement.executeQuery();
+           while (resultSet.next()) {
+               var user = new Member(
+                       resultSet.getLong("id"),
+                       resultSet.getString("name"),
+                       resultSet.getString("email"),
+                       resultSet.getIny("age"));
+               System.out.println(user);
+           }
+            connection.close();
+        }  
+    }
+
+
+
+}
+

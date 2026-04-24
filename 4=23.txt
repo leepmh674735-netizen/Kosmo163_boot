@@ -1,0 +1,10 @@
+public  void login(Sting login_id) throws Exception {
+    String SQlStmt = "SELECT * FROM CUSTMER WHERE LOGIN_ID = ?";
+    PreparedStratement st = con.PreparedStratement(SQLStmt);
+    st.setString(1, login_id);
+    if(rs.next()){
+        // do any thing
+    }
+    rs.close();
+    st.close();
+}

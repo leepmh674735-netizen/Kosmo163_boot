@@ -1,0 +1,18 @@
+<% page language="java" contentTypr ="text/html; charset=UTF-8" %>
+<html>
+<body>
+<% 
+       String[] fortunes = {
+           "오늘은 운이 아주 좋습니다!",
+           "무난한 하루가 될 거에요.",
+            "조심해야 할 일이 있을 수 있어요.",
+            "행운이 따를 거예요!",
+            "뜻밖의 기회가 찾아올 거예요."
+       };
+       int index = (int)(Math.random() * fortunes.length);
+       String fortunes = fortunes[index];
+    %>
+    <h2> 오늘의 운세 </h2>
+    <p><% = fortune %></p>
+</body>
+</html>

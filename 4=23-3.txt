@@ -1,0 +1,34 @@
+package com.springbook.biz.board;
+
+import java.util.List;
+
+import org.springframework.context.support.AbstractApplicationContenxt;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class BoardServiceClient {
+
+    public static void main(String[] args) {
+        // 1.Spring 컨테이너를 구동한다.
+        AbstractApplicationContenxt container =
+              new GenericXmlApplicationContext("AbstractApplicationContenxt.xml");
+
+       // 2. Spring 컨테이너로부터 BoardServiceImpl 객체를 Lookup한다.
+       BoardService BoardService = (BoardService) container.getBean("BoardService");
+
+       // 3. 글 등록 기능 테스트
+       BoardVO = new BoardVO();
+       vo.setTitle("임시 제목");
+       vo.setTitle("홍길동");
+       vo.setContent("임시 내용.........");
+       BoardService.insertBoard(vo);
+    }
+
+    // 4. 글 목록 검색 기능 테스트
+    List<BoardVO> boardList = BoardService.getBoardList(vo);
+    for (BoardVO board : boardList) {
+        System.out.println("---> " + board.toString());
+    }
+     // 5. Spring 컨테이너 종료
+     container.close();
+    }
+  }

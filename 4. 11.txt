@@ -1,0 +1,15 @@
+public interface MemberResitory extends JpaRepository<Member, Long> {
+
+    @Query(value="""
+        SELECT m.name, m.email., count(a.id) AS count
+            FROM Member m LEFT JOIN article a ON m.id = a.Member_id
+            GROUP BY m.id ORDER BY count DESC
+        """, nativeQuery = true)
+        List<Object[]> getMemberStatsNativeObjects();
+        
+       //...
+    }
+
+
+
+
