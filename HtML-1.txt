@@ -1,0 +1,12 @@
+<main class="contents">
+   <section id="headLing">
+   <h2>몸과 마음이 치유되는 섬</h2>
+
+   <section>
+   <section id="activity">
+   <h2> 다양한 액티비티가 기다리는 섬 </h2>
+
+   <section>
+   </main>
+
+   <aside>     <footer>  <div>
