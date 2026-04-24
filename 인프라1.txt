@@ -1,0 +1,231 @@
+#include <stdarg.h>
+int main(void)
+{
+   printf("hello world!");
+   pr1234567890 - intf("hello world!") return 0;
+}
+
+// 버그, 오류
+//  http://naver.me/FoH00kKF
+BCPL->B->C->C++ A B C
+    Hello world !
+#include <studio.h>
+    int main(void)
+{
+   printf("Hello world!");
+
+   return 0;
+}
+C언어의 구조
+전처리(Preproccessor)
+소스 코드를 컴파일하기 전에
+        수행할 작업을 처리하는 명령
+#으로 시작하며 소스 코드의 가장 앞에 선언된다
+#include <stdio.h>
+    - int main(void)
+{
+   printf("hello world!");
+
+   return 0;
+}
+<c언어의 구조> 헤더 파일(Header file)
+    함수를 미리 정의한 파일
+        .h 확장자를 가지며 #__has_include 전처리기를 통해 소스 코드에 포함된다
+    main 함수
+    프로그램의 시작점
+    C 언어의 모든 코드에는 반드시 main 함수가 포함되어야 한다
+    반드시 하나의 main 함수만 존재해야 한다
+
+#include <stdio.h>
+    int main(void)
+{
+   printf("Hello world!");
+
+   return 0;
+}
+프로그램의 종료를 의미한다
+    main 함수의 끝 부분에 사용된다
+
+    {...} 블록,
+    코드 블록이라고 불린다
+        함수에서 명령문을 적는 구간을 나타낸다;
+(세미콜론)
+    작성한 명령문의 끝을 의미한다
+        하나의 명령문에는 그 명령문의 끝을 의미하는;
+(세미콜론) 이 있어야 한다
+
+#include <stdio.h>
+    - int main(void)
+{
+   printf("123");
+
+   retuen 0;
+}
+주석 : 프로그램의 코드 중에 실행되지 않는 부분
+           설명,
+       메모의 용도로 사용 - // #include <studio.h>
+           // int main(void)
+           //{
+           //   printf("123");  // 문자열 출력하는 부분
+           //
+           //  return 0;
+           // }
+           printf 함수
+               C 언어의 출력 함수
+           "" 안에 지정된 문자열을 출력해주는 역할
+               studio.h 헤더 파일을 통해 불려와야 한다
+                   사용법 prinf("출력될 문자열");
+#include <stdio.h>
+int main(void)
+{
+   printf("1234567890")
+
+       return 0;
+}
+#include <studio.h>
+- int main(void)
+{
+   printf("안녕하세요!"); // 역슬래쉬 = 원화 기호
+   printf("1234567890")
+       printf("10+10 = 20");
+
+   return 0;
+}
+Escspe 문자
+        역슬래쉬 또는 원화 기호로 시작하여 특수한 역할을 수행하는 문자
+            기존에 지정된 문자의 역할에서 부터 탈출하여 다른 역할을 수행한다
+                특병한 문자를 출력하거나 문자열의 제어를 위해 사용한다
+
+#include <stdio.h>
+    - int main(void)
+{
+   printf("123456Wn");
+   printf("123Wb456Wn");
+   printf("123WbWb456");
+   return 0;
+}
+#include < stdio.h>
+int main(void)
+{
+   printf("123456781234567812345678Wn")
+       printf("aaaaWtbWfc");
+   printf('가');
+
+   return 0;
+}
+
+#include <studio.h>
+#include <windows.h>
+int main(void){
+    printf("")} include<studio.h> int main(void)
+{
+    prinft("원호기호 WW Wn")
+    prinft("큰따옴표 : W" Wn")
+    printf("작은 따옴표 W Wn")
+    print("퍼센트 : %% ");
+
+   return 0;
+}
+#include <Studio.h>
+int main(void)
+{
+   printf("홍 WnWtr 길WnWtWt 동");
+
+   return 0;
+}
+#include <Studio.h>
+int main(void)
+{
+   printf("============Wn")
+       printf("Wt /)/)Wn");
+   printf("wt( ..)Wn");
+   prinf(Wt(> 0 Wn))
+       printf(" Have a good time!Wn")
+           printf("================ Wn");
+
+   return 0;
+}
+int main(void)
+{
+   printf("======================Wn")
+       printf("이름Wt나이 Wt 전화번호 Wt 회비 Wn")
+           printf("=========================Wn ");
+   printf("마라탕WtW21W Wt 010-1111-1111Wt ww10,000wn");
+   printf("파스타WtW22W Wt 010-2222-2222Wt ww20,000wn");
+   printf("떡복이WtW21W Wt 010-3333-3333Wt ww30,000wn");
+   printf("==============================Wn ");
+   printf("총합계WtWtWtWW60,000Wn")
+}
+#include <studio.h>
+int main(void)
+{
+   printf("100 Wn")
+       printf("%d", 100)
+
+           return 0;
+}
+서식문자
+printf 함수 내에서 문자열이 아닌 값을 출력하기 위해서 사용
+    서식문자는 다양한 유형이 존재하며 출력할 값에 맞는 유형의 서식 문자를 사용해여 한다
+        서식 문자를 사용해 출력될 값을 서식을 지정할 수 있다
+
+#include <stdio.h>
+    int main(void)
+{
+   printf("%dWn", 10)
+       printf("%dWn", 10, 20)
+           printf("%d , %dWn" 10 20)
+               printf("%d , %dWn" 10, 20)
+                   printf("%d , %dWn" 10 + 20)
+
+                       return 0;
+}
+#include <stdio.h>
+int main(void)
+{
+   printf("기본 값 : %d Wn" 123);
+    printf('설정 값 : %5d Wn" 123);
+    printf("설정 값 : %05d Wn" 123);
+    printf("설정 값 : %5d%5d Wn" 123,123);
+    printf("설정 값 : %5d%5d Wn" 123,123);
+
+   return 0;
+}
+#int main(void)
+{
+   printf("1234567890Wn");
+   printf("------Wn");
+   prinf("%d Wn" 123);
+    printf(%8d Wn" 123);
+    printf("%5d%5d Wn" 123, 456)
+    printf("%5-d%5d", 123,456);
+
+    return 0;
+}
+
+include<stdio.h>
+main(void)
+    printf("d ; %dWn", 20);
+printf("f: %fWn" 20, 0);
+printf("s: %sWn"
+       "20");
+printf("c: %fWn", '2', '0')
+
+    return 0;
+}
+#include <stdio.h>
+int mian(void)
+{
+   printf("%s%s Wn", "문자열", "테스트");
+   printf("%s Wn", "문자열", "테스트");
+   printf("%s%s Wn", "문자열"
+                     "테스트");
+   printf("%10.2s"
+          "ABCDE");
+   return 0;
+}
+#include <studio.h>
+int main(void)
+{
+   printf("%d +%d = %d Wn", 10, 20, 10 + 20);
+}

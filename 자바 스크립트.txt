@@ -1,0 +1,392 @@
+자바 스크립트
+
+
+//event 이벤트
+사건, 사고, 사용자의 행위
+
+// 마우스 이벤트 좌클릭 더블클릭 우클릭
+키보드 이벤트 : 키를 입력했을 떄
+form 이벤트 : submit , reset,
+
+
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+const btn3 = document.getElementById("btn3");
+const input1 = document.getElementById("input1");
+const result = document.getElementById("result");
+const btn4 = document.getElementById("btn4");
+const p1 =document.getElementById("p1");
+const p2 =document.getElementById("p2");
+const check = document.getElementById("check");
+
+btn3.addEventListener("click", function(){
+if(p1.value === p2.value){
+check.innerHTMl="<h4>일치하지않음</h4>"
+}else {
+check.innerHTML="<h4>PW
+p2.value="";
+}
+})
+
+
+btn3.addEventListener("click", function(){
+for(let c of s){
+if(c.selected)
+console.log(c.innerText);
+}
+}
+
+
+console.log(input1.value);
+result.innerText=input1.value;
+})
+
+//클릭 이벤트가 발생했을 때 -> 이벤트 등록
+//on이벤트명 = 콜백함수
+btn1.onclick = function(){
+f();
+}
+
+
+//addEventListener("이벤트명", 콜백함수)
+btn2.addEventListener('click', function(){
+f1();
+})
+
+function f1(){
+alert('click');
+}
+
+
+https://git-fork.com/
+Fork - a fast and friendly git client for Mac and Windows
+git-fork.com
+
+https://www.inflearn.com/challenges?charge=FREE
+업무 지식부터 북클럽까지 함께 학습하고, 소통하며, 미션도 직접 참여하는 인프런 챌린지
+www.inflearn.com
+
+엘리먼트
+이벤트 종류
+
+
+javascript의 for문 종류
+
+. 주요 메서드
+1) push(data) : 배열 끝에 요소를 추가하고 새로운 길이 (length) 반환
+2) pop() : 배열 끝에 요소를 삭제하고 삭제한 요소를 반환
+3) unshift(data) : 배열 처음에 요소를 추가하고 새로운 길이 (length) 반환
+4) shift() : 배열 처음 요소를 삭제하고 삭제한 요소를 반환
+5) sort() : 정렬, 오름 차순
+6) reverse() : 순서 변경
+7) foreach() : 반복문 for 대신 사용가능한 함수
+foreach(function(변수명1, 변수명2, 배열의변수명){
+-- 변수명1 : 배열에서 꺼낸 값
+-- 변수명2 : 인덱스번호
+});
+8) includes(찾을 Data): 배열에 해당 Data가 존재 여부 판단
+
+4. 주요 변수
+1) length : 배열의 길이를 담고 있는 변수
+
+a. document : HTML 문서 관리
+b. location : URL 관리
+c. history : 뒤로, 앞으로 가기...
+d. navigator : Web Browser 정보
+e. screen : 클라이언트의 모니터 화면
+
+
+javascript의 배열에서 중간 값 제거
+
+splice
+
+LAZY EAGER -JPA 패치 전략
+EAGER JOIN쿼리를 통해 연관관계
+LAZY -SELECT 연관관계
+
+YAML
+
+타입 스크립트
+
+함수 선언 명명함수 익명함수
+
+callback 함수
+
+자바스크립트 오브젝트
+동적 요소
+
+docuement
+location
+history
+navigator
+screeen
+BOM(Browser Object Model)
+트리구조 노드
+
+document.getElementById()
+속성 <> 엘리먼트
+console 컨텍스트
+
+클래스 변수 메소드
+대문자 소문자
+
+소괄호가 있나 없나
+
+Dow 요소
+Element
+ID class Tag quertSectAll 클래스이름 동일
+quertSelector
+상대
+GET - getAttribute
+SET -setAttribute
+class
+element contents
+엘리먼트 구성요소 속성 가지고 오고 싶을 때
+
+if(result)
+form - sumbit reset
+
+
+const btn = document.getElementById("btn");
+const ch = document.getElementsByClassName("ch");
+
+btn.addEventListener("click", function(){
+for(let c of ch){
+if(c.checked){
+console.log(c.ariaValueMax);
+return;
+}
+}
+
+})
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documment</title>
+</head>
+<body>
+<h1>Study6</h1>
+<input type="radio" value="v1" name="" id="" class="ch">
+<input type="radio" value="v2" checked name="" id="" class="ch">
+<input type="radio" value="v3" name="" id="" class="ch">
+<input type="radio" value="v4" name="" id="" class="ch">
+
+<button id="btn">CLICK</button>
+
+<script src="./study6.js"></script>
+</body>
+</html>
+
+
+<console.log("hello");
+
+console.log("world");
+
+//변수 선언 공식 - 데이터 타입 변수명
+//데이터가 변수에 대입 할 때 타입이 결정됨
+//문자형이 없다, 전부 문자열, "", ''
+let num=3;
+console.log(num)
+num='abc';
+num='abc';
+console,log(num)
+console.log(typeof num)
+num='abc';
+console.log(num)
+console.log(typeof num)
+num=3.142;
+
+//let, const: 상수형
+const name="wrinter";
+
+name="d";
+
+let num1 = 3;
+let num2 = 5;
+let result = num1 + num2;
+console.log(result);
+num1= 10;
+num2 = '10';
+console.log(num1 == num2);
+console.log(num === num2);
+
+// 조건 반복
+// if(){}
+
+// if(){}else {}
+
+// if()()else if()() else {}
+
+
+// switch()
+// case 1;
+// break;
+// case 1;
+// break;
+// default;
+// }
+
+
+// -- 반복 ---
+for(let i=0;i<5;i++){
+//break;
+//continue;
+}
+
+while(){
+break;
+continue;
+}
+
+배열
+let ar = [1,'abc", 3.456, true];
+
+console.log(ar[1]);
+
+for(let i=0;i<ar.length;i++){
+console.log(ar[i]);
+}
+
+for in
+for Of -Map,Set
+forEach -break continue
+
+향상된
+
+for(let a of ar){
+console.log(a);
+}
+프린트 데이터타입 조건 변수명
+
+var
+let
+const
+연산자 제어문 와일문
+
+Push data
+Pop
+unshift
+shift
+scrot reverse foreach includes
+
+let 1 =
+ar.push("hello");
+배열 리스트
+
+function
+접근 지정자 [그외지정자] 리턴타입 메소드명({매개변수 선언}){}
+메소드명 ([매개변수 선언]) {}
+let num = f1();
+
+function f1(){
+console.log("f1 함수 실행")
+return 10;
+}
+
+//매개변수 선언시 변수명만 선언
+function f2(n1, n2){
+let result = n1*n2;
+
+return result;
+}
+let num = f1();
+
+num = f2(3, 9);
+
+console.log(num)
+
+num = f2(3, "9");
+
+console.log(num)
+
+익명함수 람다식
+let f =
+function (){}
+
+//event 이벤트
+사건, 사고, 사용자의 행위
+
+// 마우스 이벤트 좌클릭 더블클릭 우클릭
+키보드 이벤트 : 키를 입력했을 떄
+form 이벤트 : submit , reset,
+
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+const btn3 = document.getElementById("btn3");
+const input1 = document.getElementById("input1");
+const result = document.getElementById("result");
+const btn4 = document.getElementById("btn4");
+const p1 =document.getElementById("p1");
+const p2 =document.getElementById("p2");
+const check = document.getElementById("check");
+
+btn3.addEventListener("click", function(){
+if(p1.value === p2.value){
+check.innerHTMl="<h4>일치</h4>"
+}else {
+check.innerHTML="<h4>PW
+p2.value="";
+}
+})
+
+btn3.addEventListener("click", function(){
+
+console.log(input1.value);
+result.innerText=input1.value;
+})
+
+//클릭 이벤트가 발생했을 때 -> 이벤트 등록
+//on이벤트명 = 콜백함수
+btn1.onclick = function(){
+f();
+}
+
+
+//addEventListener("이벤트명", 콜백함수)
+btn2.addEventListener('click', function(){
+f1();
+})
+
+function f1(){
+alert('click');
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documment</title>
+</head>
+<body>
+<h1>Study6</h1>
+<button id="btn1" >CLICK></button>
+<button id="btn2" >CLICK></button>
+
+<div>
+<input id="input1"type="text" name="">
+<select name="" id="">
+<option class="s">1</option>
+<option selected class="s">1</option>
+<option class="s">3</option>
+</select>
+<button id="btn3">CLICK</button>
+<div id="result"></div>
+</div>
+
+<div>
+
+<input type password name="" id="p1">
+<input type password name="" id="p2">
+<button id+"btn4">CLICK</button>
+<div id="check"></div>
+</div>
+
+
+

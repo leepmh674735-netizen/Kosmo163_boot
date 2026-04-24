@@ -1,0 +1,12 @@
+<input> type 속성
+text  password    search   url  email
+tel checkbox  radio
+number  range  date  month    week  time  
+datetime-local
+submit
+reset
+image
+button
+file
+hidden
+type="text"   type="password"

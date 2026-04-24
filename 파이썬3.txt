@@ -1,0 +1,164 @@
+
+   day01 - 실습 2
+   구구단 프로그램 만들기
+   <동작 순서>
+    메뉴 구성 : 특정 단 출력 or 전체 출력 or 종료
+    1. 특정 단 출력은 1 ~ 9단까지 중 하나를 선택
+       해당 단만 출력
+    2. 전체 출력을 1단 ~ 9단 전체를 3 x 3으로 출력
+     ex.
+      1단  2단   3단
+      4단  5단   6단
+      7단   8단  9단
+     3. 종료를 선택하기 전 까지 프로그램은 계속 동작
+        종료를 선택하면 프로그램이 종료
+'''
+while True
+    # 동작 메뉴 출력 및 수령할 동작 입력
+    cho = 0
+    while True:
+      cho = int(input('1. 한개 단 출력\n2. 전체 출력\n3. 프로그램 종료\n>>>  '))
+      if cho in (1,2,3):
+          break
+      else:
+      print('다시 입력하세요\n')
+   
+    
+    # 각 메뉴별 동작
+    if cho == 1:   # 1 ~ 9 숫자 입력 받아 특징 단 출력
+       su = int(input(' 구구단 몇 단? >>> '))
+       print(f'{su}단 -----')
+      for a in range(1,10):
+           print(f'{su} x {a} = {su*a}')
+    elif cho == 2: # 전체 단 출력
+         for b in range(1,8,3):
+            for c in range(1,10):
+               for d in range(3)
+                   print(f'{b+d} x {c} = {(b+d)*c}',end='      '}
+                print()
+             print()
+    elif cho == 3:  # 프로그램 종료
+         print('프로그램이 종료됩니다')
+         break
+      print()
+ 1. 한 개 단 출력
+ 2. 전체 출력
+ 3. 프로그램 종료
+ >>> 3
+
+ 프로그램이 종료됩니다
+ PS E:\4월 평일_파이썬2_김기태>
+'''
+phython 자료형
+1. 단일 데이터
+int  : 정수
+float : 실수(소수점이 있는 숫자)
+bool :  True/False (참/거짓)
+
+2. 다수의 데이터
+  str  : 문자열  "내용" or '내용'
+  list : 리스트 [요소1. 요소2. 요소3, ...]
+  tuple : 튜플 (요소1, 요소2, 요소3,  ...)  - 괄호 생략 가능
+  dict : 딕셔너리 {key1:value1, key2:value2, ...}
+  
+  * str , list, tuple의 경우 index 번호로 내부 데이터 접근
+  dict는 key를 이용하여 실제 묶인 value에 접근
+  
+  ls = {10,20,30,40}
+  print('ls :',ls, '-type :',type(ls))
+  print('내부 요소 :',end=' ')
+ for i in range(len(ls)):
+ print(ls[i],end=' ')
+print()
+ls[1] = 100
+print('변경 후 ls :',ls)
+'''
+tp1 = (10,20,30)
+tp2 = 40,50,60
+tp3 = (100)
+tp4 = 200,
+print('tp1 :',tp1, '- type :', type(tp1))
+print('tp1 :',tp2, '- type :', type(tp2))
+print('tp1 :',tp3, '- type :', type(tp3))
+print('tp1 :',tp4, '- type :', type(tp4))
+
+tp1[1] = 100
+tp = 10,20,30
+print('tp :', end=' ')
+for i in range(len(tp)):
+print(tp[i],end='  ')
+print('\n')
+
+a,b,c = tp
+print('a :',a, '\nb :',b, '\nc :',c)
+
+
+st = 'Have a nice day'
+print('st :',st,' -type :',type(st))
+print('내부 내용 :',end= ' ')
+for i in range(len(st)):
+   print(st[i],end='-')
+print()
+
+#st[2] = 'b'  # error code
+st = st.replace(st[2],'b')
+print('변경 후 st :' ,st)
+
+
+dic = (1:'one', 2: 'two', 3: 'three')
+print('dic :', dic,'- type :',type(dic))
+print('\n내부 요소(item() 함수 사용)')
+for i in dic.key():
+      print(f'key :',i,' -vlaue : (dic[i])')
+
+실습 1
+빈 list 선언 후 요소의 개수와 개수만큼 요소를 입력 받아 lsit에 저장하고
+입력된 데이터 오름차순 정렬하여 list 출력
+'''
+ls = []
+cnt = int(input('요소 몇 개? >>>  '))
+for a in range(cnt):
+     date = int(inpur(f'(a+1)번째 요소 입력 : '))
+     ls.append(date)
+ls.sort()      # 내림차순의 경우 LIST.sort(reverse=True)  사용
+print('완성된 ls :',ls)
+
+실습 2
+날짜를 년/월/일 형식의 문자열로 입력 받아
+1970년 1월 1일을 기준으로 몇년, 몇개월, 몇일 후 인지 출력
+'''
+daySte = input('날짜 입력(yyyy/mm/dd) : ')
+dayLs = dayStr.split('/')
+print('\n1970년 1월 1일부터')
+print(f'{int(dayLs[0])-1970}년 {int (dayLs [1])-1}개월 {int (dayLs[2])-1}일 지났습니다')
+
+함수
+프로그램 내부에 생성하는 작은 프로그램
+
+특정 기능을 가진 구체적인 코드를 고정된 이름으로 정의 
+> 특정 작업의 코드를 매번 입력하는 것이 아니라 정의된 이름으로 호출
+'''
+기존에서 len(), range(), type() 등의 함수를 사용해봤고
+수업에서는 새로운 함수를 정의하는 여러가지 방법을 학습
+
+
+def 함수이름(매개변수):
+    동작할 코드
+    return 값
+
+* 매개변수는 함수를 호출할 떄 특정 데이터를 전달하기 위해 사용
+  데이터를 전달할 필료 없는 함수라면 매개변수는 생략 가능
+'''
+* return 코드는 함수를 호출한 위치된 특정 값을 반환
+return를 만나면 함수는 종료된다
+반환해야 하는 데이터가 없다면 return은 생략이 가능
+
+함수를 사용하는 목적
+1. 특정 동작이 반복되는 경우 반복되는 동작을 함수로 정의하여 중복을 최소화
+-> 코드의 간소화가 가능하다
+
+2. 하나의 프로그램을 작게 나워서 코드의 이해와 유지/관리를 편하게 할 수 있다
++ 여러 프로그래머가 하나의 프로그램을 함꼐 만들 때 작업의 분담이 가능
+
+
+

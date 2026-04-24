@@ -10,3 +10,14 @@
    </main>
 
    <aside>     <footer>  <div>
+   <hn>  <p> <br>   <hr>
+   <blockqute>   <strong> <b>
+   <em>   <i>  <cite>
+   <abbr>   <code>   <del>   <ins> <marK>    <small>  <sub>  <sup>
+   <ol>   <li>
+   <ul>   <li>
+   <dl>  <dt>  <dd>
+   table  row column  cell
+   <table>  <caption>
+   
+   <tr>  <td>,<th>

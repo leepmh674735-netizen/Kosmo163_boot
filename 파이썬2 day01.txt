@@ -1,0 +1,280 @@
+'''
+   출력함수 : print()
+     print() 함수의 괄호 내부에 작성한 데이터가 출력
+    출력될 데이터를 직접 입력하거나, 변수 등에 저장하여 서식 문자로 출력
+
+    서식 문자는 모든 언어에서 사용하는 % 서식문자와
+    phython 3버전부터 사용이 가능한 {} 서식문자가 있고,
+   3.6 버전부터 f-string을 사용하여 더 편하게 코드를 작성할 수 있게 되었다
+
+    print() 함수 마지막에는 표시되지 않는 개행 문자가 존재
+    개형 문자 대신에 다른 문자를 출력하기 위해 end='' 구분 사용
+  
+  입력함수 : input()
+     입력함수는 염력된 데이터가 기본적으로 문자열로 취금
+     그래서 int(input())처럼 형변환 함수를 사용하여 입력한 데이터를 숫자로 변환
+     
+     int() 함수의 괄호 내부에 특정 문자열을 입력하여
+     입력될 내용 왼쪽으로 지장한 내용을 출력할 스 있다
+
+     phython에서 입력은 변수명 = input() 형식으로
+     입력된 데이터를 바로 특정 변수에 저장
+'''
+'''
+a = input('숫자 입력 : ')
+print('a : ', a,'type :',type(a))
+
+'''
+b = int(input('숫자 입력 : '))
+print('b ; ,b,'type :',type(b))
+'''
+
+c = int(input('숫자 입력 : '))
+print('c :',c)
+print('c : %d'%c)           # % 서식문자는 데이터의 자료형에 따라 % 뒤의 알파벳이 변경
+print('c : {}'.format(c))   # {} 서식문자
+print(f'c : {c}')           # f-string
+''' 
+
+print('end로 이어가기',end+'@')
+print('줄 변경 대신에 다른 문자를 출력한다')
+'''
+
+# map(자료형, 변환할 데이터)
+d = map(int,input('숫자 두 개 입력 : ').split())
+print('d :'d,'- type : 'type(d))
+e = list(d)
+print('e :',e'-type :',type(e))
+print('두 수의 함 :',e[0]+e[1])
+'''
+
+f,g = map(int,input('숫자 두 개 입력 : ').split())
+print('f :',f,'\ng :',g)
+print('두 수의 합 :',f+g)
+
+
+'''
+    연산자
+    1. 대입 연산자       =
+    2. 산술 연산자       +,-,*, /, //, %,**
+    3. 복합 대입 연산자   +=, -=, *=, /=, //=, %=,
+    4. 관계 연산자       >, <, >=, <=
+    5. 동등 연산자       ==, !=
+    6. 논리 연산자       and, or, not
+''' 
+
+a = 9; b = 2
+print('a + b =',a+b)
+print('a - b =',a-b)
+print('a * b =',a*b)
+print('a / b =',a/b)
+print('a // b =',a//b)
+print('a % b =',a%b)
+print('a ** b =',a**b)
+'''
+
+a = 10
+print( 'a 초기값 :',a)
+a += 3    # a = a + 3
+print('+ 3 :',a)
+a -=5
+print("-5:',a)
+a *=2
+print('* 2 :',a)
+'''
+
+a = 3; b = 3.1
+print('a > b ;' ,a>b,'- %d'%(a>b))
+print('a < b :', a<b, '- %d'%(a<b))
+print('a < b :',a==b,'- %d'%(a==b))
+print('a != b :',a!=b,'- %d'%(a!=b))
+'''
+'''
+print('1 and 0 :', 1 and 0)
+print('1 or 0 :',1 or 0)
+'''
+
+'''
+   if 
+   조건식을 확인하여 조건이 참이면 특정 코드 동작
+
+   if ~ else 
+    조건식을 확인하여 조건이 참일때와 거짓일때 각각 특정 코드를 동작
+  
+   if ~elif
+   조건식을 확인하여 조건이 참이면 해당 위치의 코드를 동작하고 if분 종료
+   조건이 거짓이면 다음 조건을 다시 확인
+   필요 시 마지막에 else를 사용할 수 있다
+
+   if분 중첨
+    if, else, elif 각 단락에 필요 시 다시 if문을 사용
+'''
+
+a = int(input('숫자 1 ~3 입력 : '))
+if a > 0:
+    if a == 1:
+       print('1 입력')
+    elif a == 2:
+      print('2 입력')
+    elif a == 3:
+    print('3 입력')
+     else:
+           print('범위 밖의 숫자')
+
+else:
+     print('양수를 입력하세요')
+
+'''
+    for 
+    특정 데이터 덩어리를 제시하여 내부의 데이터를 첫 데이터부터 변수에 넣고
+    내부 코드 동작 후 다음 데이터를 변수에 넣어서 내부 코드 동 (= 내부의 코드가 반복)
+    데이터 집합의 모든 데이터를 변수에 한번씩 넣은 후 반복이 종료
+    (+ break문을 만나도 반복이 종료)
+
+    데이터 집합 range() 함수를 이용하거나 list, tuple, 문자열 등을 사용
+
+     for문 종첨
+     반복문 내부 코드로 반복문을 사용
+     외부의 반복문이 한 번 동작하는 동안 내부의 반복문은 동작이 끝난다
+
+     반복문은 반복 과정에서 각 변수의 데이터가 어떻게 변하는지 알 수 있어야 한다
+'''
+''' 
+a = range(1,10,1)   # 1부터 1씩 증가하는 10 전까지 숫자들의 집합 
+print(list(a))
+'''
+
+b = range(1,10)   # 증감값을 생략, 종감값은 기본밗 1 적용
+print(list(b))
+'''
+
+c = range(10)      # 생략 순서는 층감값 -> 시작값 순서, 끝값의 생략은 불가능
+print(list(c))     # 생략 시 총감습 1, 시작값은 0이 기본값으로 사용
+'''
+
+for i in range(1,10):
+    print(i,end=' ')
+print()
+'''
+
+for i in [1,2,3,4,5,6,7,8,9,10]:
+    print(i,end=' ')
+print()
+'''
+
+ls = [10, 5, 6, 8,1] 
+for i in ls:
+    print(i,end=' ')
+print()
+'''
+
+st = 'python class 2'
+for i in st:
+     print(i,end='-')
+print()
+'''
+
+for i in range(1,4):
+   print(f'(i)회차 :',end=' ')
+   for j in range(1,10):
+        print(j,end=' ')
+        if j == 5:
+            break
+      print()
+print()
+'''
+
+'''
+    while
+    조건식을 확인하여 조건이 참이면 내부 코드 동작 후 다시 조건식 확인
+    조건이 거짓이 되면 while분 종료
+
+     while ~ else
+      조건식이 거짓이 되었을 때 특정 코드를 동작하고 while문 종료
+
+    while 종첩
+    while문도 필요에 따라 중첩이 가능
+'''
+
+i = 1
+while i < 10:
+    print(i, end='')
+    i += 1
+else:
+     print('\n마지막 동작 후 i :',i)
+
+
+i = 10
+while i:
+   print(i,end=' ')
+   i -=1
+else:
+     print('\n마지막 동작 후 i :',i)
+
+
+a = int(input('반복 횟수 입력 : '))
+i = 1
+while True:
+     print(i,end=' ')
+     if i == a:
+          break
+     i += 1
+print()
+'''
+
+while True:
+     su = int(input('1 ~ 5 숫자 입력 : '))
+    if su in (1,2,3,4,5):
+         break
+     else:
+          print('범위 밖의 숫자입니다')
+print('입력된 숫자 : %d'%su)
+'''
+
+'''
+   실습1
+   10 ~ 20 범위의 숫자만 입력 받아
+   1부터 입력 받은 숫자까자의 정수 중 짝수의 함을 출력
+   조건 1. 범위 밖의 숫자입력되면 다시 코드를 입력받도록 코드 작성
+   조건 2. if분,for문, while분을 전부 한 번 이상 사용
+'''
+
+su = 0; Sum = 0
+while True:
+    su = int(input('10 ~ 20 숫자 입력 : '))
+    if su > 10 and su <= 20:
+        break
+    else:
+    print('범위를 벗어났습니다\n')
+for a in range(1,su+1):
+    if a % 2 == 0
+    su += a
+print(f'1 ~ {su} 범위의 짝수들의 합 : {Sum}')
+
+
+'''
+    실습 2
+    구구단 프로그램 만들기
+    <동작 순서>
+    메뉴 구성 : 특정 단 출력 or 전체 출력 or 종료
+     1. 특정 단 출력은 1 ~ 9단까지 중 하나를 선택
+     해당 단만 출력
+    2. 전체 출력 1단 ~ 9 단 전체를 3 X 3으로 출력
+       ex.
+         1단   2단   3단
+         4단   5단   6단
+         7단   8단  9단
+    3. 종료를 선택하기 전 까지 프로그램은 계속 동작
+        종료를 선택하면 프로그램이 종료
+    '''
+while True:
+     # 동작 메뉴 출력 및 수행할 동작 입력
+     cho = 0
+
+     # 각 메누별 동작
+     if cho == 1:    # 1 ~ 9 숫자 입력 받아 특정 단 출력
+         pass
+    elif cho == 2:  # 전체 단 출력
+         pass
+     elif cho == 3:   # 프로그램 종료
+         pass

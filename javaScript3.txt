@@ -1,0 +1,41 @@
+console.log("member.join")
+
+​
+
+const username = document.getElementById("username")
+
+​
+
+username.addEventListener("blur", function() {
+
+      if(username.value.lengh>0){
+
+           console.log("ok")
+
+     }else {
+
+         console.log( "f")
+
+​
+
+     }
+
+})
+
+<div class="card shadow mb-4">
+
+ <div class="card-header py-3"> <h6 class="m-0 font-weight-bold text-primary">게시글 작성하기</h6> </div> <div class="card-body"> 
+
+<form action="./add" method="post" id="frm" enctype="multipart/form-data"> <div class="mb-3"> <label for="title" class="form-label">제목</label> <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력하세요"> 
+
+</div> <div class="mb-3"> <label for="writer" class="form-label">작성자</label>
+
+ <input type="text" class="form-control" id="writer" name="writer"> 
+
+</div> <div class="mb-3"> <label for="contents" class="form-label">내용</label> 
+
+<textarea id="contents" name="contents"></textarea> 
+
+</div> <div class="text-right"> <button type="button" id="btn" class="btn btn-primary">등록하기</button> <a href="./list" class="btn btn-secondary">취소
+
+</a> </div> </form> </div> </div>

@@ -1,0 +1,25 @@
+<head>
+
+<study>
+table, th, td {
+    border:1px solid #css;
+    border-collapse:collapse;
+}
+th. td { padding:10px 20px; }
+</style>
+</head>
+
+<thead>  <tbody>  <tfoot>
+<td rowspan="합칠 셀의 개수">내용</td>   
+<td colspan="합칠 셀의 개수"내용</td>
+<col>   <colgroup>
+<img>  width   heigh
+<figure>  <figcation>
+srcset
+<object>  <embed>
+<audio> <video>
+controls
+autoplay
+loop     muted   preload   width, heigh
+poster
+<a>  href  target

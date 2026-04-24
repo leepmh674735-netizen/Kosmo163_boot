@@ -1,0 +1,293 @@
+form 폼 검증방법
+
+자바로 정규표현식하는 방법
+
+https://www.w3schools.com/jsref/jsref_obj_array.asp
+W3Schools offers free online tutorials, references and exercises in all the major languages of the web. Covering popular subjects like HTML, CSS, JavaScript, Python, SQL, Java, and many, many more.
+www.w3schools.com
+
+console.log("member.join")
+
+const username = document.getElementById("username")
+
+username.addEventListener("blur", function() {
+if(username.value.lengh>0){
+console.log("ok")
+}else {
+console.log( "f")
+
+}
+})
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+<!-- Page Heading -->
+<h1 class="h3 mb-4 text-gray-800">Create Page</h1>
+
+
+1. 게시글 작성 폼 추가 (Summernote 연동)
+h1 태그 바로 아래에 아래 코드를 이어 붙여보세요.
+HTML
+<div class="card shadow mb-4">
+<div class="card-header py-3"> <h6 class="m-0 font-weight-bold text-primary">게시글 작성하기</h6> </div> <div class="card-body">
+<form action="./add" method="post" id="frm" enctype="multipart/form-data"> <div class="mb-3"> <label for="title" class="form-label">제목</label> <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력하세요">
+</div> <div class="mb-3"> <label for="writer" class="form-label">작성자</label>
+<input type="text" class="form-control" id="writer" name="writer">
+</div> <div class="mb-3"> <label for="contents" class="form-label">내용</label>
+<textarea id="contents" name="contents"></textarea>
+</div> <div class="text-right"> <button type="button" id="btn" class="btn btn-primary">등록하기</button> <a href="./list" class="btn btn-secondary">취소
+</a> </div> </form> </div> </div>
+
+2. 스크립트 연결 (유효성 검사 및 에디터 활성화)
+파일 하단(</div> 다음이나 </body> 직전)에 아래 스크립트를 추가하세요.
+
+JavaScript
+
+<script>
+// 1. Summernote 초기화
+$('#contents').summernote({
+placeholder: '내용을 입력하세요.',
+tabsize: 2,
+height: 400
+});
+
+// 2. 등록 버튼 클릭 이벤트 (작성하신 btn.addEventListener 로직 활용)
+const btn = document.getElementById("btn");
+const frm = document.getElementById("frm");
+const title = document.getElementById("title");
+
+btn.addEventListener("click", function(){
+// 제목이 비어있는지 체크 (유효성 검사)
+if(title.value.length == 0) {
+alert("제목은 필수 입력 사항입니다.");
+title.focus();
+return;
+}
+
+// 에디터 내용이 비어있는지 체크 (Summernote 전용)
+if ($('#contents').summernote('isEmpty')) {
+alert("내용을 입력해주세요.");
+return;
+}
+
+// 모든 검사 통과 시 강제 제출
+frm.submit();
+});
+</script>
+
+const id1 = document.getElementByld("id1");
+
+const btn = document.getElementById("btn")
+const frm = document.getElementById("frm")
+const id2 = document.getElementById("id2")
+const id2_result = document.getElementById("id2_result")
+const id3 = document.getElementById("id3")
+
+id3.addEventListener("change, function(){
+console.log(id3.value)
+});
+
+id2.addEventListener("blue", function(){
+console.log()
+if(id1.value.length<6){
+id2_result.innerText= '최소 6글자 이상 입력하세요'
+} else {
+id2_result.innerText="";
+}
+})
+
+btn.addEventListener("click", function(){
+///이벤트를 강제 실행
+// frm.sumbmit()
+})
+
+id1.addEventListener("keyup", function () {
+console.log(id1.value.length)
+})
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documment</title>
+</head>
+<body>
+<h1>Study8</h1>
+
+<input type="text" id="id1">
+
+<div>
+<form action="" id=""frm">
+<input type="text" id="id2">
+<span id="id2_result'></span>
+<input type="text" id="id3">
+<input type="text">
+<button type="button" id="btn">click</button>
+</form>
+</div>
+
+<script src="/study8.js"></script>
+</body>
+</html>
+
+
+<div>
+<form action="./join" method="post" enctype="multipart/form-data">
+<div class="form-group">
+<label for="username">Username</label>
+<input type="text" name="username" class="form-control" id="username" >
+</div>
+
+1. 회원가입 폼 완성 예시
+HTML
+<form action="./join" method="post" enctype="multipart/form-data" id="frm">
+<div class="form-group mb-3">
+<label for="username">Username (아이디)</label>
+<input type="text" name="username" class="form-control" id="username" placeholder="6글자 이상 입력">
+<div id="usernameResult" class="mt-1 small"></div> </div>
+
+<div class="form-group mb-3">
+<label for="password">Password</label>
+<input type="password" name="password" class="form-control" id="password">
+</div>
+
+<div class="form-group mb-3">
+<label for="name">Name</label>
+<input type="text" name="name" class="form-control" id="name">
+</div>
+
+<div class="form-group mb-4">
+<label for="profileFile">Profile Image</label>
+<input type="file" name="profileFile" class="form-control-file" id="profileFile">
+</div>
+
+<button type="button" id="btn" class="btn btn-primary btn-block">회원가입</button>
+</form>
+
+
+2. 자바스크립트 유효성 검사 추가
+이전에 공부하신 내용을 바탕으로, 아이디 입력창을 벗어날 때(blur) 자동으로 길이를 체크하는 로직을 붙여보세요.
+
+JavaScript
+<script> const username = document.getElementById("username"); const usernameResult = document.getElementById("usernameResult"); const btn =
+
+document.getElementById("btn"); const frm = document.getElementById("frm"); // 1. 실시간 글자 수 체크 (blur 이벤트 활용)
+
+username.addEventListener("blur", function() { if(this.value.length < 6) { usernameResult.innerText = "아이디는 최소 6글자 이상이어야 합니다.";
+
+usernameResult.style.color = "red"; } else { usernameResult.innerText = "사용 가능한 아이디 형식입니다.";
+usernameResult.style.color = "green"; } }); // 2. 가입 버튼 클릭 시 최종 전송 btn.addEventListener("click", function() { // 필수 입력 값 체크 if(username.value.length < 6) { alert("아이디 형식을 확인해주세요."); username.focus(); return; } // 모든 검사 통과 시 전송 frm.submit(); }); </script>
+
+
+<div class="form-group">
+<label for="name">Name</label>
+<input type="text" name="name" class="form-control" id="name" >
+</div>
+
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" name="email" class="form-control" id="email" >
+</div>
+
+<div class="form-group">
+<label for="profile">Profile Image</label>
+<input type="file" name="profile" class="form-control-file" id="profile" >
+</div>
+
+<div class="mt-4">
+<button type="button" id="btn" class="btn btn-primary btn-block">가입하기</button>
+</div>
+</form>
+</div> ```
+
+---
+
+### 2. 자바스크립트를 이용한 전송 로직 (중요)
+
+지금 `button` 타입을 `submit`이 아닌 `button`으로 만드셨기 때문에, 자바스크립트에서 **유효성 검사**를 마친 후 수동으로 제출(`submit()`)해 주는 과정이 필요합니다.
+
+```javascript
+<script>
+const btn = document.getElementById("btn");
+const frm = document.querySelector("form"); // 작성 중인 form 태그 선택
+
+btn.addEventListener("click", function() {
+const username = document.getElementById("username");
+const pw = document.getElementById("password");
+
+// 간단한 유효성 검사 예시
+if(username.value.length < 6) {
+alert("아이디는 6글자 이상이어야 합니다.");
+username.focus();
+return;
+}
+
+if(pw.value.length == 0) {
+alert("비밀번호를 입력해주세요.");
+pw.focus();
+return;
+}
+
+// 검사 통과 시 서버로 데이터 전송
+frm.submit();
+});
+</script>
+
+
+1) push(data) : 배열 끝에 요소를 추가하고 새로운 길이 (length) 반환
+2) pop() : 배열 끝에 요소를 삭제하고 삭제한 요소를 반환
+3) unshift(data) : 배열 처음에 요소를 추가하고 새로운 길이 (length) 반환
+4) shift() : 배열 처음 요소를 삭제하고 삭제한 요소를 반환
+5) sort() : 정렬, 오름 차순
+6) reverse() : 순서 변경
+7) foreach() : 반복문 for 대신 사용가능한 함수 foreach(function(변수명1, 변수명2, 배열의변수명){ -- 변수명1 : 배열에서 꺼낸 값 -- 변수명2 : 인덱스번호 }); 8) includes(찾을 Data): 배열에 해당 Data가 존재 여부 판단 4. 주요 변수 1) length : 배열의 길이를 담고 있는 변수
+
+a. document : HTML 문서 관리 b. location : URL 관리 c. history : 뒤로, 앞으로 가기... d. navigator : Web Browser 정보 e. screen : 클라이언트의 모니터 화면
+
+Event 종류 1. 마우스 이벤트
+click : 마우스 좌 클릭 했을 때
+2) mouseenter : 어떤 영역(Element)에 마우스 커서가 들어 갔을 때
+3) mouseleave : 어떤 영역(Element)에 마우스 커서가 나갔을 때
+4) contextmenu : 마우스 우클릭 했을 때 2. 키보드 이벤트 1) keydown : key를 눌렀을 때, 특수키(crtl, alt...한글) 포함 2) keypress : key를 눌렀을 때, 특수키(crtl, alt...한글) 제외 3) keyup : key를 눌렀다가 뗏을 때 3. form 이벤트 1) focus : 입력 대기 상태 2) blur : focus 잃었을 때 3) submit : form 을 서버로 요청 발생 4) reset : form 내부의 데이터를 초기화 5) change : 값(value)이 변경 되었을 때 B. Event 등록 1)
+
+Element의 속성 형식으로 등록 - on이벤트명 = "함수호출" ex) <button onclick="fn1()">CLICK</button> 2) JS 파일에서 코드 작성 - 선택자.on이벤트명 = 익명함수 선언 또는 함수 호출 (함수 호출 시에는 () 생략 해야 함) 3) JS 파일에 작성 - 선택자.addEventListener("이벤트명", 익명함수선언 또는 함수 호출) C. Event 강제 실행 선택자.이벤트명();
+
+1. 버블링 - 중접된 Element 들에서 같은 이벤트가 적용 되었을때 - 자식 부터 실행하고 부모로 전파 되는것 자식 엘리먼트에 이벤트가 발생하면 할당된 핸들러(callback)가 작동하고 부모의 핸들러가 작동 addEventListener('이벤트명',function(){}, capture:false) - {capture:false} 대신에 false만 작성 가능
+
+2. 캡처링 - 중접된 Element 들에서 같은 이벤트가 적용 되었을때 - 부모 부터 실행하고 자식으로 전파 되는것 이벤트 전달이 버블링 반대 addEventListener('이벤트명', 콜백함수, {capture:true}) - {capture:true} 대신에 true만 작성 가능
+
+3. 버블링, 캡처링 중단 - 이벤트 전달을 중단 시키기 - 꼭 필요한 경우를 제외하고 버블링 중단은 안하는 것을 권장 1) event.stopPropagation(); d2.addEventListener("click", function(event){ event.stopPropagation(); console.log("p click"); }, false); 2) event.stopImmediatePropagation(); 해당 Element에 있는 모든 이벤트 전달을 중단 할 때 사용
+
+4. Element가 가지고 있는 기본 동작(event, a, submit,,,)을 중단
+1) preventDefault() - Element가 가지고 있는 기본 동작(event, a, submit,,,)을 중단 시키는 메서드 <a href="https://www.google.com" id="google">GOOGLE</a> const google = document.getElementById("google"); google.addEventListener("click", function(event){ alert("Go Google"); event.preventDefault(); });
+2) 콜백함수에서 false를 리턴 google.addEventListener("click", function(event){ alert("Go Google"); return false; });
+
+const myBtn = document.getElementById("btn"); myBtn.addEventListener("click", function() { alert("버튼이 클릭되었습니다!"); });
+
+URL 직접입력 GET
+a 태그 GET
+form 태그 GET / POST
+location.href GET
+포커스 이벤트
+블러
+첨부파일 필드와 제출(submit)
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+alert("${result}");
+location.href="${url}"
+</script>
+</body>
+</html>
