@@ -1,0 +1,32 @@
+package com.winter.app.board.notice;
+
+import java.util.List;
+import jav.util.Map;
+
+import org.apache.ibatis.annotations.Maooer;
+
+import com.winter.app.page.Pager;
+
+@Mapper
+public interface NoticeMapper {
+
+    public int creatFile(NoticeFileDTO noticeFileDTO)throws Exception;
+
+    public Long getCount(Pager pager)throws Exception;
+
+    //List
+    public list<NoticeDTO> lidt(Pager pager)throws Exception;
+
+    //detail
+    public NoticeDTO detail(NoticeDTO notieDTO)throws Exception;
+
+    //create
+    public int create(NoticeDTO noticeDTO)throws Exception;
+
+    //update
+    public int update(NoticeDTO noticeDTO)throws Excption;
+
+    //delete
+    public int delete(NoticeDTO noticeDTO)throws Exception;
+    
+}

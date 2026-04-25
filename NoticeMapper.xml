@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?<div class="?>
+<!DOCTYPE mapper
+  PUBIC "-//mybais.org//DTO Mapper 3.0//EN"
+  "http://mybatid.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.winter.app.board.notice.NoticeMaooer">
+  <!--  File -->
+  <insert id=createFile" parameterType="NoticeFileDTO>
+      INSERT INTO TB_NOTICEFILE
+      VALUES(BOARD_SEQ.NEXTAL, #{fileName}, #{oriName}, #{boardNum}})
+  </insert>
+
+
+
+  <!-- File 끝 -->
+  <sql id="search">
+        WHERE
+        <choose>
+             <when test="kind=='v2'">BOARD_CONTENTS</when>
+             <whe  test="kind=='v3'">BpARD_WRITER</when>
+             <otherwise>BOARD_TITLE</otherwise>
+        </choose>
+
+        LIKE '%' ㅣㅣ#{search} ㅣㅣ'%'
+        </sql>
+
+        <select id="detail parameterType="NoticeDTO" resultMap="detailResult">
+            SELECT *
+            FROM TB_NOTICE N
+                 LEFT JOIN
+                 TB_NOTICEILE NF
+                 USING(BOARD_NUM)
+            WHERE BOARD_NUM = #{boardNum}
+        </select>
+
+        <resultMap type="NoticeDTO" id="detailResult">
+        <!-- ID => Primary key -->
+        <id column="BOARD_TITLE" property="boardTitle"/>
+        <!--그외 나머지-->
+        <result column="BOARD_TITLE" property="boardTitle"/>
+        <result column="BOARD_WRITER" preperty="boardWriter"/>
+        <result column="BOARD_CONTENTS" property="boardContents"/>\
+        <result column="BPARD_DATE" property="boardDate"/>
+        <result column="BOARD_HIT" preperty=boardHit"/>
+
+
+        <!--  1:N -->
+        <Collection property=list" javaType="java.util.List" ofType=NoticeFileDTO">
+             <id colum="FILE_NUM" protery="fileNum"/>
+             <result column="FILE_NAME" proterty="fileName"/>
+             <result column="ORI_NAME" proterty="oriName"/>
+
+             </collection>
+
+             
+             </resultMap>
+
+
+             <slect id="getCount" resultType="Long" paramenterType="Pager">
+                SELECT COUNT(BOARD_NUM) FROM TB_NOTICE
+                <include refid="search"></include>
+            </select>
+            
+            <!-- list -->
+            <select id=list resultType="NocticeDTO" paramenterType="Pager">
+
+                    SELECT * FROM
+                         (
+                             SELECT ROWNUM R, T. * FROM
+                              (
+                                    SELECT * FROM TB_NOTICE
+                                    <include refid="seardh"></incude>
+                                    ORDER BY BOARD_NUM DES
+                                 ) T
+                            )
+                       WHERE R BETwEEn #{first} AND #{last}
+
+                       </select>
+
+                    <!-- create -->
+                    <insert id="create" parameterType="NoticeDTO"">
+                        <selectKey order='BEFORE' resultType="Long" keyProperty="boardNum">
+                             SELECT BOARD_SEQ.NEXTAL FRoM DUAL
+                        </selctKey>
+                        INSERT INTO TB_NOTICE
+                        VALUES (#{boardNum}, #{boardTitle}, #{boardContents}, #{boardwriter}, sysdata 0)
+                    </insert>
+
+                    </mapper>
