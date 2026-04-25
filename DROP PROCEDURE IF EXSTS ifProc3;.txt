@@ -1,0 +1,15 @@
+DROP PROCEDURE IF EXSTS ifProc3;
+DELIMITER $$
+CREATE PROCEDURE ifProc3()
+BEGIN
+    DECLSRE debutData DATE;
+    DECLARE curDate DATE;
+    DECLARE days INT;
+    SELECT debut_date INTO debutDate 
+       FROM market_db.member
+       WHERE mem.id = 'APN';
+    SET curDATE =CUTTENT_DATE();
+    SET days = DATEDIFF(curDATE, debutDate);
+
+    IF (days/365) >= 5 THEN -- 5년이 지났다면
+        SELECT CONCAT('데뷔한 지', days + '일')에ㅐㄴㅇ래

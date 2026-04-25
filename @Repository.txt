@@ -1,0 +1,23 @@
+@Repository
+public interface MemberRepository extends CrudRepository<Member, long> {
+    // 기본적인 CRUD 메서드(save, findById, findById, findAll, deleteByld) 자동제공
+}
+@Componpent
+@RequiredArgsConstructor
+@Slf4j
+public class SpringJdbcApplication implements ApplicationRunner {
+    private final Member Repository memberRepository;
+
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        // create
+        Member member = Member.buider()
+                 .name("정혁")
+                 .email("HyeokJung@hanbit.co.kr").age(10).build();
+        memberRepository.save(member);
+
+        // update
+        member.setAge(11)
+        memberReponsitory.save(member);
+    }
+}

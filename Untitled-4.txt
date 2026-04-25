@@ -1,0 +1,8 @@
+Member count: 4 
+Member : Member(id=1, name=윤서준, email=SeojunYoon@hanbit.co.kr, age=10)
+Insterted: 1
+
+# enable log for MyBatis
+logging.level.com.example.demo.mapper.MemberMapper=TRACE
+logging.level.com.example.demo.mapper.ArticleMapper=TRACE
+
