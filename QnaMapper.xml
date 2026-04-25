@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.winter.app.board.qna.QnaMapper">
+    <!-- File 끝 -->
+    <sql id="search">
+  		WHERE 
+        <choose>
+            <when test="kind=='v2'">BOARD_CONTENTS</when>
+            <when test="kind=='v3'">BOARD_WRITER</when>
+            <otherwise>BOARD_TITLE</otherwise>
+        </choose>
+  		
+  		LIKE '%'||#{search}||'%'
+    </sql>
+    <!-- list -->
+    <select id="list" resultType="NoticeDTO" parameterType="Pager">
+  		
+			SELECT * FROM
+				(
+					SELECT ROWNUM R, T.* FROM
+					(
+						SELECT * FROM TB_QNA
+        <include refid="search"></include>
+						ORDER BY BOARD_REF DESC, BOARD_STEP ASC
+					) T
+				)
+			WHERE R BETWEEN #{first} AND #{last}
+		
+    </select>
+
+    <!-- create -->
+    <insert id="create" parameterType="QnaDTO">
+        <selectKey order="BEFORE" resultType="Long" keyProperty="boardNum">
+    		SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+        </selectKey>
+    	
+    	INSERT INTO TB_QNA 
+    	VALUES 
+    	(	
+    		#{boardNum}, 
+    		#{boardTitle}, 
+    		#{boardContents}, 
+    		#{boardWriter}, 
+    		sysdate, 
+    		0,
+        <if test="boardRef != null">
+    			#{boardRef},
+        </if>
+        <if test="boardRef == null">
+    			#{boardNum},
+        </if>
+    		#{boardStep},
+    		#{boardDepth}	
+    	)
+    </insert>
+
+    <update id="replyUpdate" parameterType="QnaDTO">
+    	UPDATE TB_QNA SET BOARD_STEP=BOARD_STEP+1
+    	WHERE BOARD_REF=#{boardRef} AND BOARD_STEP>#{boardStep}
+    </update>
+
+
+
+
+
+</mapper>
