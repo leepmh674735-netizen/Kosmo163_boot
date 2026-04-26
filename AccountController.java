@@ -22,9 +22,7 @@ public class AccountController {
     }
 
     @PostMappping("create")
-    publuc String
-
-    create(AccountDTO accountDTO, HttpSessin session)throws Exception{
+    publuc String create(AccountDTO accountDTO, HttpSessin session)throws Exception{
         object obj = sesion.getArribute("member");
         MemberDTO memberDTO = (MemberDTO)obj;
 
