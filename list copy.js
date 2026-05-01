@@ -1,6 +1,6 @@
 const all = document.getElementById("all");
 const ch = document.querySelectorAll(".ch")//document.getElementsByClassName("ch");//checkbox
-const del = document.getElementsByClassName("del");
+const del = document.getElementsByClassName("del"); //개별삭제 버튼
 const selectdel = document.getElementById("selectdel");
 const list = document.getElementById("list")
 
@@ -8,14 +8,14 @@ getList();
 
 function getList(){
     fetch("./cartlist")
-    .then(r=.r/text())
+    .then(r=>r.text())
     .then(r=>{
         r=r.trim()
         list.innerHTML=r;
     })
 }
 
-selectdel.addEventListener("click", ()=>[
+selectdel.addEventListener("click", ()=>{
     let pn = new URLSearchParams();
     ch.forEach((c)=>{
         if(c.checked){
@@ -28,10 +28,10 @@ selectdel.addEventListener("click", ()=>[
         method:"POST",
         body: pn
     }).then(r=>r.text())
-    .then(r =>{
+    .then(r => {
         r=r.trim();
         if(r>0){
-            getList();
+           getList();
         }
     })
 
@@ -40,21 +40,21 @@ selectdel.addEventListener("click", ()=>[
 })
 
 for(let d of del){
-
-    addEventListener("click", () =>{
+    
+    d.addEventListener("click", ()=>{
         let pn = d.previousElementSibling.getAttribute("data-pn")
         let p = new URLSearchParams();
         p.append("productNum", pn);
 
-        fetch("./delete",{
+        fetch("./delete", {
             method:"POST",
-            body:pageYOffset
+            body:p
         })
         .then(r=>r.text())
         .then(r=>{
-            r =r.trim();
+            r = r.trim();
             if(r>0){
-                getList();
+               getList();
             }else {
                 alert('삭제 실패')
             }
@@ -62,22 +62,22 @@ for(let d of del){
     })
 }
 
-alll.addEventener("click, ()=>{
-    ch,forEach((c)=>{
+all.addEventListener("click", ()=>{
+    ch.forEach((c)=>{
         c.checked=all.checked;
     });
 })
 
-ch.fortEach(c=>{
-    c.assEventListener("click", ()=>[
+ch.forEach(c=>{
+    c.addEventListener("click", ()=>{
         let r=true;
         ch.forEach((e)=>{
-            if(e.checked){
-                r=false
+            if(!e.checked){
+                r=false;
             }
         })
 
         all.checked=r;
-        
-    ])
+
+    })
 })
