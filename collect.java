@@ -10,3 +10,4 @@ for (Transation transation : transation) {
     }
     transationsForCurrency.add(transation);
 }
+
