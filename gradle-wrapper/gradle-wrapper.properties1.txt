@@ -1,0 +1,9 @@
+# Gradle Wrapper 설정 파일
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+# 1. URL의 불필요한 백슬래시(\) 제거 및 최신 안정 버전 확인
+distributionUrl=https://services.gradle.org/distributions/gradle-8.14.4-bin.zip
+networkTimeout=10000
+validateDistributionUrl=true
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists

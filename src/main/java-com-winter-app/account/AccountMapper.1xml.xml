@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.winter.app.account.AccountMapper">
+
+    <!-- 1. 컬럼명을 명시하여 유지보수성 향상 -->
+    <!-- 2. #{accountDate}를 직접 넘기거나 DB 함수를 상황에 맞게 사용 -->
+    <insert id="create" parameterType="com.winter.app.account.AccountDTO">
+        INSERT INTO TB_ACCOUNT (
+            ACCOUNT_NUM, 
+            USERNAME, 
+            PRODUCT_NUM, 
+            ACCOUNT_PW, 
+            ACCOUNT_BALANCE, 
+            ACCOUNT_DATE
+        )
+        VALUES (
+            #{accountNum}, 
+            #{username}, 
+            #{productNum}, 
+            #{accountPw}, 
+            0, 
+            CURRENT_TIMESTAMP          <!-- 3. 표준 SQL 함수 권장 -->
+        )
+    </insert>
+
+</mapper>

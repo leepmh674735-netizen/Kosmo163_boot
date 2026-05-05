@@ -26,3 +26,23 @@ msg += '<h2>replace</h2><p>' +saying.replace('me', 'w') + '</p>';
 
 var el = document.getElementById('info');
 el.innerHTML = msg;
+
+isNaN()
+.toFixed()
+.toPrecision()
+.toExponential(
+    integer
+    real number
+     floating point number
+     scientific notstion
+
+)
+
+var itemTwo = document.getElementById('two');
+
+var elText = itemTwo.firstChild.nodeValue;
+
+elText = elText.replace('잣','양배추')
+
+itemTwo.firstChild.nodeValue = elText;
+
