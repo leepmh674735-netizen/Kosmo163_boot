@@ -1,0 +1,55 @@
+# [1] 애플리케이션 및 서버 설정
+
+spring.application.name=kosmo_post-1
+server.port=80
+
+# [2] View (JSP) 설정
+
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp
+
+# [3] DB 정보 (Oracle)
+
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@193.168.0.10:1521:xe
+spring.datasource.hikari.username=cns
+spring.datasource.hikari.password=cns
+
+​
+# [4] MyBatis 설정
+# 별칭(Alias) 설정을 통해 XML에서 클래스명만 사용 가능
+mybatis.type-aliases-package=com.winter.app
+
+# DB의 언더바(_) 컬럼명을 자바의 낙타표기법(camelCase)으로 자동 매핑
+mybatis.configuration.map-underscore-to-camel-case=true
+
+
+# [5] 파일 업로드 (Multipart) 설정
+spring.servlet.multipart.enabled=true
+spring.servlet.multipart.max-file-size=10MB
+spring.servlet.multipart.max-request-size=100MB
+
+​
+
+# [6] 파일 저장 및 커스텀 경로 관리
+
+# yubin.upload.base=D:\\upload\\
+# yubin.account=account
+# yubin.aop.test=aop.test
+# yubin.board.notice=notice
+# yubin.board.qna=qna
+# yubin.cart=cart
+# yubin.config=config
+# yubin.file=file
+# yubin.interceptors=interceptors
+# yubin.member=member
+# yubin.pager=pager
+# yubin.product=product
+# yubin.review=review
+
+# [7] AOP 설정
+
+# 부모가 없는 class 사용시 에러 발생 방지
+
+# 인터페이스 없이 클래스 기반으로 프록시 생성을 강제함 (트랜잭션 처리 등에 유리)
+spring.aop.proxy-target-class=true

@@ -1,0 +1,82 @@
+plugins {
+id 'eclipse'
+id 'java'
+id 'war'
+id 'org.springframework.boot' version '3.2.5' // 3.5.x는 아직 출시 전이므로 안정화 버전인 3.2.x나 3.3.x 권장
+id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.winter'
+version = '0.0.1-SNAPSHOT'
+
+java {
+toolchain {
+languageVersion = JavaLanguageVersion.of(21)
+}
+}
+
+repositories {
+mavenCentral()
+}
+
+dependencies {
+// Web & Validation
+implementation 'org.springframework.boot:spring-boot-starter-web'
+implementation 'org.springframework.boot:spring-boot-starter-validation' // 따옴표 오류 수정
+
+// Security
+implementation 'org.springframework.boot:spring-boot-starter-security'
+// 미완성된 spring.security 구문 삭제 (starter-security에 포함되어 있음)
+
+// AOP
+implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+// DB & MyBatis
+implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+runtimeOnly 'org.postgresql:postgresql'
+
+// JSP & JSTL (Spring Boot 3.x용)
+implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
+implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl' // runtimeOnly에서 implementation으로 변경 권장
+
+// Lombok
+compileOnly 'org.projectlombok:lombok'
+annotationProcessor 'org.projectlombok:lombok'
+testCompileOnly 'org.projectlombok:lombok'
+testAnnotationProcessor 'org.projectlombok:lombok'
+
+// DevTools & Test
+developmentOnly 'org.springframework.boot:spring-boot-devtools'
+providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+testImplementation 'org.springframework.boot:spring-boot-starter-test'
+testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+eclipse {
+wtp {
+facet {
+facet name: 'jst.web', version: '6.0'
+}
+}
+}
+
+tasks.named('test') {
+useJUnitPlatform()
+}
+
+// MyBatis XML 파일을 java 폴더에서도 읽어오기 위한 설정
+sourceSets {
+main {
+java {
+srcDirs = ['src/main/java']
+}
+resources {
+srcDirs = ['src/main/resources', 'src/main/java']
+include '**/*.xml'
+include '**/*.properties'
+include '**/*.yml'
+}
+}
+}
