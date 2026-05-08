@@ -29,8 +29,7 @@ public class LoginFailureHandler implements AuthenticationFailureHandler {
         String errorMessage = "아이디 또는 비밀번호가 맞지 않습니다.";
 
         // 예외 유형별 메시지 처리
-        if (exception instanceof BadCredentialsException
-                || exception instanceof InternalAuthenticationServiceException) {
+        if (exception instanceof BadCredentialsException || exception instanceof InternalAuthenticationServiceException) {
             errorMessage = "아이디 또는 비밀번호가 맞지 않습니다.";
         } else if (exception instanceof LockedException) {
             errorMessage = "계정이 잠겨 있습니다. 관리자에게 문의하세요.";
@@ -44,7 +43,7 @@ public class LoginFailureHandler implements AuthenticationFailureHandler {
 
         // 메시지를 한글로 보내기 위해 인코딩 처리
         errorMessage = URLEncoder.encode(errorMessage, StandardCharsets.UTF_8);
-
+        
         // 에러 메시지를 포함하여 로그인 페이지로 리다이렉트
         response.sendRedirect("/login?error=true&message=" + errorMessage);
     }
