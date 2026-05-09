@@ -12,7 +12,7 @@ import java.util.Arrays;
 @Component
 public class Card {
 
-    // 1. Pointcut 표현식: (리턴타입 패키지.클래스.메서드(파라미터))
+    // 1. pointcut 표현식: (리턴타입 패키지.클래스.메서드(파라미터))
     // Transport 클래스의 take로 시작하는 모든 메서드를 대상으로 합니다.
     @Around("execution(* com.winter.app.aop.test.Transport.take*(..))")
     public Object cardCheck(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
